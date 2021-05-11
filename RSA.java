@@ -8,43 +8,43 @@ public class RSA {
 
 		Scanner a = new Scanner(System.in);
 		System.out.println("Message to encrypt and decrypt: ");
-        int msg = a.nextInt();
+        	int msg = a.nextInt();
 		double c;
 		BigInteger dec;
 
 		System.out.println("Enter the 1st prime number p: ");
-        p = a.nextInt();
-        boolean flagp = false;
-        for (int i = 2; i <= p / 2; ++i) {
-            if (p % i == 0) {
-            flagp = true;
-            break;
-        }
-        }
+        	p = a.nextInt();
+        	boolean flagp = false;
+        	for (int i = 2; i <= p / 2; ++i) {
+            		if (p % i == 0) {
+            		flagp = true;
+            		break;
+        	}
+        	}
 
-        if (!flagp)
-        System.out.println(p + " is a prime number.");
-        else{
-        System.out.println("Output: Entered number "+p+" is not prime, run the program again and enter prime numbers");
-        System.exit(0);
-    }
+        	if (!flagp)
+        	System.out.println(p + " is a prime number.");
+        	else{
+        	System.out.println("Output: Entered number "+p+" is not prime, run the program again and enter prime numbers");
+        	System.exit(0);
+    		}
 
 		System.out.println("Enter the 2nd prime number q: ");
 		q = a.nextInt();
-        boolean flagq = false;
-        for (int j = 2; j <= q / 2; ++j) {
-            if (q % j == 0) {
-            flagq = true;
-            break;
-        }
-        }
+        	boolean flagq = false;
+        	for (int j = 2; j <= q / 2; ++j) {
+            		if (q % j == 0) {
+            		flagq = true;
+            		break;
+        		}
+        	}
 
-        if (!flagq)
-        System.out.println(q + " is a prime number.");
-        else{
-        System.out.println("Output: Entered number "+q+" is not prime, run the program again and enter prime numbers");
-        System.exit(0);
-    }
+        	if (!flagq)
+        	System.out.println(q + " is a prime number.");
+        	else{
+        	System.out.println("Output: Entered number "+q+" is not prime, run the program again and enter prime numbers");
+        	System.exit(0);
+    		}
 		n = p * q;
 		phi = (p - 1) * (q - 1);
 		System.out.println("\nthe value of phi = " + phi);
@@ -66,8 +66,8 @@ public class RSA {
 			}
 		}
 		System.out.println("the value of d = " + d);
-        System.out.println("\nPublic key = " +"{"+e +","+n+"}");
-        System.out.println("Private key = " +"{"+d +","+n+"}\n");
+        	System.out.println("\nPublic key = " +"{"+e +","+n+"}");
+        	System.out.println("Private key = " +"{"+d +","+n+"}\n");
 
 		c = (Math.pow(msg, e)) % n;
 		System.out.println("Encrypted message is : " + c);
@@ -78,13 +78,13 @@ public class RSA {
 		dec = (C.pow(d)).mod(N);
 		System.out.println("Decrypted message is : "
 						+ dec);
-	}
+		}
 
-	static int gcd(int e, int phi)
-	{
-		if (e == 0)
-			return phi;
-		else
-			return gcd(phi % e, e);
-	}
+		static int gcd(int e, int phi)
+		{
+			if (e == 0)
+				return phi;
+			else
+				return gcd(phi % e, e);
+		}
 }
